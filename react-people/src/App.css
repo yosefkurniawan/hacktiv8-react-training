@@ -36,3 +36,36 @@
     transform: rotate(360deg);
   }
 }
+
+.App .list-item {
+  list-style: none;
+  text-align: left;
+  border: 3px solid#ddd;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.App .list-item:after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
+.App .list-item + .list-item {
+  margin-top: 10px;
+}
+
+.App .list-item-image-container {
+  float:left;
+}
+
+.App .list-item-image-container img {
+  width: 100px;
+  display: block;
+}
+
+.App .list-item-name {
+  float:left;
+  margin: 15px;
+  font-weight: 600;
+}
