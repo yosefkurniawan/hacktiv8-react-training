@@ -1,4 +1,6 @@
 import React from 'react';
+import styled, {css} from 'styled-components';
+import Add from './Add.js';
 import './App.css';
 
 const styles = {
@@ -15,6 +17,9 @@ function List(props) {
   return (
     <>
       <h1 style={styles.header}>React People!</h1>
+      <a href="javascript:void(0)" onClick={props.onNavigateToAddScreen}>
+        Add People
+      </a>
       <ul>
         {props.data.sort(sortByPower).map(person => (
           <li key={person.name} className="list-item">
@@ -52,13 +57,29 @@ class App extends React.Component {
             'https://upload.wikimedia.org/wikipedia/hu/8/84/Chi-chi_dragon_ball_anime.jpg',
           power: 30
         }
-      ]
+      ],
+      screen: 'list'
     }
+  }
+  onNavigateToAddScreen = () => {
+    this.setState({
+      screen: 'add'
+    });
+  }
+  onNavigateToListScreen = () => {
+    this.setState({
+      screen: 'list'
+    });
   }
   render() {
     return (
       <div className="App">
-        <List data={this.state.human} />
+        {this.state.screen === 'list' && (
+          <List data={this.state.human} onNavigateToAddScreen={this.onNavigateToAddScreen} />
+        )}
+        {this.state.screen === 'add' && (
+          <Add onNavigateToListScreen={this.onNavigateToListScreen} />
+        )}
       </div>
     )
   }
