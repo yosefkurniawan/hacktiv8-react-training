@@ -1,6 +1,12 @@
 import React from 'react';
 import './App.css';
 
+const styles = {
+  header: {
+    fontSize: '25px'
+  }
+}
+
 function sortByPower (a, b) {
   return b.power - a.power;
 }
@@ -8,7 +14,7 @@ function sortByPower (a, b) {
 function List(props) {
   return (
     <>
-      <h1 style={{fontSize:'25px'}}>React People!</h1>
+      <h1 style={styles.header}>React People!</h1>
       <ul>
         {props.data.sort(sortByPower).map(person => (
           <li key={person.name} className="list-item">
