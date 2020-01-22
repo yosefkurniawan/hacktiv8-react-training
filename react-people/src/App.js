@@ -1,7 +1,14 @@
 import React from 'react';
-import styled, {css} from 'styled-components';
+// import styled, {css} from 'styled-components';
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
 import Add from './Add.js';
 import './App.css';
+
+const btnColor = 'palevioletred';
+const btnBg = 'transparent';
+const btnColorHover = 'white';
+const btnBgHover = 'palevioletred';
 
 const styles = {
   header: {
@@ -13,29 +20,28 @@ function sortByPower (a, b) {
   return b.power - a.power;
 }
 
-const Link = styled.a`
-  background: transparent;
-  border-radius: 3px;
-  border: 2px solid palevioletred;
-  color: palevioletred;
-  margin: 0 1em;
-  padding: 0.25em 1em;
-  text-decoration: none;
-  ${(props) =>
-    props.primary &&
-    css`
-      background: palevioletred;
-      color: white;
-    `}
-`;
-
 function List(props) {
   return (
     <>
       <h1 style={styles.header}>React People!</h1>
-      <Link primary={true} href="# " onClick={props.onNavigateToAddScreen}>
+      <a 
+        css={css`
+          background: ${btnBg};
+          border-radius: 3px;
+          border: 2px solid ${btnColor};
+          color: ${btnColor};
+          margin: 0 1em;
+          padding: 0.25em 1em;
+          text-decoration: none;
+          &:hover {
+            background: ${btnBgHover};
+            color: ${btnColorHover};
+          }
+        `} 
+        href="# "
+        onClick={props.onNavigateToAddScreen}>
         Add People
-      </Link>
+      </a>
       <ul>
         {props.data.sort(sortByPower).map(person => (
           <li key={person.name} className="list-item">
