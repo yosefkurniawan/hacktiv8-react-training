@@ -8,7 +8,7 @@ function sortByPower (a, b) {
 function List(props) {
   return (
     <>
-      <h1>React People!</h1>
+      <h1 style={{fontSize:'25px'}}>React People!</h1>
       <ul>
         {props.data.sort(sortByPower).map(person => (
           <li key={person.name} className="list-item">
