@@ -13,13 +13,29 @@ function sortByPower (a, b) {
   return b.power - a.power;
 }
 
+const Link = styled.a`
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid palevioletred;
+  color: palevioletred;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+  text-decoration: none;
+  ${(props) =>
+    props.primary &&
+    css`
+      background: palevioletred;
+      color: white;
+    `}
+`;
+
 function List(props) {
   return (
     <>
       <h1 style={styles.header}>React People!</h1>
-      <a href="javascript:void(0)" onClick={props.onNavigateToAddScreen}>
+      <Link primary={true} href="# " onClick={props.onNavigateToAddScreen}>
         Add People
-      </a>
+      </Link>
       <ul>
         {props.data.sort(sortByPower).map(person => (
           <li key={person.name} className="list-item">
