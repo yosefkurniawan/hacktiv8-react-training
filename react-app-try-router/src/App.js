@@ -3,7 +3,9 @@ import {
   BrowserRouter as Router,
   Link,
   Switch,
-  Route
+  Route,
+  useRouteMatch,
+  useParams
 } from "react-router-dom";
 
 import logo from './logo.svg';
@@ -28,6 +30,38 @@ function Dashboard() {
   );
 }
 
+function Topic() {
+  let { topicId } = useParams();
+  return (
+    <h3>Topic ID: {topicId}</h3>
+  );
+}
+
+function Topics() {
+  let match = useRouteMatch();
+  return (
+    <>
+      <h1>This is Topics</h1>
+      <ul>
+        <li>
+          <Link to={`${match.path}/components`}>Components</Link>
+        </li>
+        <li>
+          <Link to={`${match.path}/prop-v-state`}>Prop vs State</Link>
+        </li>
+      </ul>
+      <Switch>
+        <Route path={`${match.path}/:topicId`}>
+          <Topic />
+        </Route>
+        <Route path={match.path}>
+          <h3>Select a topic...</h3>
+        </Route>
+      </Switch>
+    </>
+  );
+}
+
 
 function App() {
   return (
@@ -40,7 +74,8 @@ function App() {
             <nav>
               <Link to="/">Home</Link>&nbsp;|&nbsp;
               <Link to="/dashboard">Dashboard</Link>&nbsp;|&nbsp;
-              <Link to="/about">About</Link>
+              <Link to="/about">About</Link>&nbsp;|&nbsp;
+              <Link to="/topics">Topics</Link>
             </nav>
 
             <Switch>
@@ -49,6 +84,9 @@ function App() {
               </Route> 
               <Route path="/about">
                 <About />
+              </Route>
+              <Route path="/topics">
+                <Topics />
               </Route>
               <Route path="/">
                 <Home />
