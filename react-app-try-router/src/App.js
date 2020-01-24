@@ -14,19 +14,19 @@ import './App.css';
 
 function About() {
   return (
-    <h1>This is About</h1>
+    <h2>This is About</h2>
   );
 }
 
 function Home() {
   return (
-    <h1>This is Home</h1>
+    <h2>This is Home</h2>
   );
 }
 
 function Dashboard() {
   return (
-    <h1>This is Dash</h1>
+    <h2>This is Dash</h2>
   );
 }
 
@@ -41,7 +41,7 @@ function Topics() {
   let match = useRouteMatch();
   return (
     <>
-      <h1>This is Topics</h1>
+      <h2>This is Topics</h2>
       <ul>
         <li>
           <Link to={`${match.path}/components`}>Components</Link>
@@ -66,6 +66,7 @@ function Topics() {
 function App() {
   return (
     <div className="App">
+      <h1>APP 1</h1>
       
       <div style={{display:'flex'}}>
         <sidebar>
