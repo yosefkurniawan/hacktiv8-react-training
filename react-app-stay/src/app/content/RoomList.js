@@ -1,5 +1,4 @@
 import React from 'react';
-
 import RoomItem from './RoomItem.js';
 
 function RoomList(props) {

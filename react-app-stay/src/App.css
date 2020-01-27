@@ -8,11 +8,16 @@
   pointer-events: none;
 }
 
-header {
-  border-bottom: 1px solid #ccc;
+.header-top {
   padding: 15px 10px;
   vertical-align: middle;
   display: flex;
+}
+
+.header-bottom {
+  background: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+  padding: 15px;
 }
 
 .logo-wrapper {
