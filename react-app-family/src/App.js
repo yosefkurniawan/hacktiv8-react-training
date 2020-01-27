@@ -2,25 +2,56 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const MyContext = React.createContext();
+
+class MyProvider extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      name: 'Yosef Kurniawan',
+      role: 'child',
+      active: true
+    }
+  }
+  render() {
+    return (
+      <MyContext.Provider value={{ state: this.state }}>
+        {this.props.children}
+      </MyContext.Provider>
+    )
+  }
+}
+
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <MyProvider>
+          <Family />
+        </MyProvider>
+      </div>
+    );
+  }
+}
+
+function Family() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Person />
+    </>
+  )
+}
+
+function Person() {
+  return (
+    <>
+      <MyContext.Consumer>
+        {(context) => (
+          <p>I'm {context.state.name} and I'm a {context.state.role}</p>
+        )}
+      </MyContext.Consumer>
+    </>
+  )
 }
 
 export default App;
