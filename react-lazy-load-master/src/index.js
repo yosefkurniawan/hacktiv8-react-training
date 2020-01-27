@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import Artists from './Artists';
+const Artists = lazy(() => import('./Artists'));
 
 class App extends React.Component {
     render(){
         return(
             <div className="App">
-            <Artists />
+                <Suspense fallback={<h1>Loading....</h1>} >
+                    <Artists />
+                </Suspense>
             </div>
         );
     }
