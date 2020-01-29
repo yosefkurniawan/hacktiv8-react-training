@@ -1,24 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Button from './components/Button.js'
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [counter, setCounter] = useState(0);
+  function increment(num) {
+    setCounter(counter + num);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>React Counter</h1>
+      
+      Counter:
+      <span className="counter">
+        {counter}
+      </span>
+      <br />
+      <br />
+      <Button increment={1} handleIncrement={increment} />
+      <Button increment={10} handleIncrement={increment} />
+      <Button increment={100} handleIncrement={increment} />
+      
     </div>
   );
 }
