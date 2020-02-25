@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { createStore } from 'redux';
 
 // Reducer
@@ -31,21 +31,33 @@ function decrementCounter() {
 // Initial State
 console.log(`Initial State: ${store.getState()}`);
 
-// Subscriber
-store.subscribe(function () {
-  console.log(`Initial changed: ${store.getState()}`);
-});
-
-// Dispatching an action
-store.dispatch(incrementCounter()); // 1
-store.dispatch(incrementCounter()); // 2
-store.dispatch(decrementCounter()); // 1
-store.dispatch(incrementCounter()); // 3
 
 function App() {
+  const [counter, setCounter] = useState(0);
+
+  // Subscriber
+  useEffect(() => {
+    store.subscribe(function () {
+      console.log(`Initial changed: ${store.getState()}`);
+      setCounter(store.getState());
+    });
+  })
+
   return (
     <div className="App">
-      See the console log for the testing...
+      <div>counter: {counter}</div>
+      <div>
+        <button 
+          onClick={() => {
+            store.dispatch({type:'INCREMENT'})
+          }}
+        >+</button>
+        <button
+          onClick={() => {
+            store.dispatch({ type: 'DECREMENT' })
+          }}
+        >-</button>
+      </div>
     </div>
   );
 }
