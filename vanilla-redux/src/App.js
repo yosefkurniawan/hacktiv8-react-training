@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect} from 'react-redux';
-import { incrementAction, decrementAction } from './actions.js';
+import { increment, decrement } from './actions.js';
 
 function App({counter, increment, decrement}) {
   return (
@@ -22,8 +22,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    increment: () => dispatch(incrementAction()),
-    decrement: () => dispatch(decrementAction())
+    increment: () => dispatch(increment()),
+    decrement: () => dispatch(decrement())
   }
 }
 
