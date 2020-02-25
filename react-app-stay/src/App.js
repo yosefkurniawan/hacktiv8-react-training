@@ -2,6 +2,7 @@ import React from 'react';
 import {
   BrowserRouter as Router
 } from 'react-router-dom';
+import ErrorBoundary from './ErrorBoundary.js';
 import RoomData from './Data.js';
 import Header from './app/Header.js';
 import Content from './app/Content.js';
@@ -24,10 +25,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Router>
-          <Header className="App-header" rooms={rooms} onSearch={this.handleOnSearch} />
-          <Content className="App-content" rooms={rooms} keyWordSearch={this.state.keyWordSearch} />
-        </Router>
+        <ErrorBoundary>
+          <Router>
+            <Header className="App-header" rooms={rooms} onSearch={this.handleOnSearch} />
+            <Content className="App-content" rooms={rooms} keyWordSearch={this.state.keyWordSearch} />
+          </Router>
+        </ErrorBoundary>
       </div>
     );
   }

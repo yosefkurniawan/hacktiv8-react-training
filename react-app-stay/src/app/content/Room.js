@@ -17,6 +17,10 @@ function Room(props) {
     const { roomid } = useParams();
     const currentRoom = getRoomById(roomid);
 
+    if (roomid <= -1) {
+        throw new Error('This room id is not valid!')
+    }
+
     return (
         <div>
             <div className="room-img"><img src={currentRoom.img} alt={currentRoom.name} style={{width:'100%'}} /></div>
