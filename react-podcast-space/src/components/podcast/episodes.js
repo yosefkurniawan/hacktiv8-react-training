@@ -8,10 +8,10 @@ function Episodes(props) {
             </h4>
             {(props.episodes) ? (
                 <>
-                    <ul class="episodes">
+                    <ul className="episodes">
                         {props.episodes.map(episode => (
-                            <li>
-                                <audio controls key={episode.id}>
+                            <li key={episode.id}>
+                                <audio controls>
                                     <source src={episode.audio} type="audio/mpeg" />
                                 </audio>
                             </li>

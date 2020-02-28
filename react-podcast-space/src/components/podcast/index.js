@@ -1,5 +1,5 @@
 import React, {lazy, Suspense} from "react";
-import ContextPodcasts from '../../data/contextPodcasts.js';
+import { ReactReduxContext } from "react-redux";
 import { 
     BrowserRouter as Router,
     Route,
@@ -12,24 +12,24 @@ const View = lazy(() => import('./view.js'));
 function Podcast() {
     return (
         <div className="page-podcast">
-            <ContextPodcasts.Consumer>
-                {(context) => (
+            <ReactReduxContext.Consumer>
+                {({store}) => (
                     <Router>
                         <Switch>
                             <Route path="/podcastview/:podcastid">
                                 <Suspense>
-                                    <View podcasts={context.state.podcasts} />
+                                    <View podcasts={store.getState().podcasts} />
                                 </Suspense>
                             </Route>
                             <Route path="/">
                                 <Suspense>
-                                    <List podcasts={context.state.podcasts} />
+                                    <List podcasts={store.getState().podcasts} />
                                 </Suspense>
                             </Route>
                         </Switch>
                     </Router>
                 )}
-            </ContextPodcasts.Consumer>
+            </ReactReduxContext.Consumer>
         </div>
     )
 }
