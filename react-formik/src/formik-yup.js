@@ -18,7 +18,7 @@ const signupSchema = Yup.object().shape({
 
 export const ValidationSchemaSample = () => (
     <div>
-        <h1>Signup</h1>
+        <h1>Simple Validation Schema with Yup</h1>
 
         <Formik
             initialValues={{firstname:'', lastname:'', email:''}}

@@ -42,7 +42,7 @@ const asyncValidate = (
 
 const Simpleformik = () => (
     <div>
-        <h1>Any place in your app!</h1>
+        <h1>Simple Form Formik</h1>
         <Formik
             initialValues={{ email: "", username: "", password: ""}}
             validate={(values, props) => syncValidate(values, props)}

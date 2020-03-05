@@ -35,6 +35,7 @@ function Simpleform() {
 
     return (
         <div className="App">
+            <h1>Simple Form</h1>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name">Name: </label><br />
