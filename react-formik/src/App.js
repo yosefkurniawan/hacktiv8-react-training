@@ -3,6 +3,7 @@ import Simpleform from './simple-form';
 import Simpleformik from './simple-formik';
 import Formikyup from './formik-yup';
 import FieldLevelValidation from './formik-field-validation';
+import FormUseFormikYup from "./formik-yup2";
 
 function App() {
   return (
@@ -11,10 +12,11 @@ function App() {
       <hr/>
       <Simpleformik />
       <hr />
-      <Formikyup/>
+      <Formikyup />
+      <hr />
+      <FormUseFormikYup />
       <hr />
       <FieldLevelValidation />
-
       <br/>
     </div>
   );
