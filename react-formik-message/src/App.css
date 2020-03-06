@@ -1,0 +1,67 @@
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav {
+  background: #eee;
+  padding: 10px 0;
+}
+
+nav li {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.content {
+  padding: 25px;
+}
+
+.list .item {
+  background: #eee;
+  padding: 15px;
+}
+
+.list .item + .item {
+  margin-top: 15px;
+}
+
+.list .item .row {
+  display: flex;
+}
+
+.list .item .row div {
+  padding: 7px 5px;
+}
+
+.list .item .row .title {
+  width: 200px;
+}
+
+.form {
+  background: #eee;
+  padding: 15px;
+}
+
+.form form > div {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.form label {
+  width: 200px;
+  display: inline-flex;
+}
+
+.form form input, textarea {
+  width: 200px;
+  height: 20px;
+  line-height: 20px;
+  padding: 0 10px;
+}
+
+.form .error {
+  margin-left: 20px;
+  color: red;
+}
