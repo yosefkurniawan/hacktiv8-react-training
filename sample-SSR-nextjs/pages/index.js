@@ -8,7 +8,13 @@ const Index = () => {
 
             <header>
                 <span>
-                    <Link href="/post-list">Blog</Link>
+                    <Link href="/post-list">
+                        <a>Blog</a>
+                    </Link>{" "}
+                    &nbsp;|&nbsp;&nbsp;
+                    <Link href="/tv">
+                        <a>TV Shows</a>
+                    </Link>
                 </span>
             </header>
         </div>

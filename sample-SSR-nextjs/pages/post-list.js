@@ -1,7 +1,11 @@
 import Link from "next/link";
 
 const PostLink = props => {
-    return <Link href={`/post?title=${props.title}`}>{props.title}</Link>;
+    return (
+        <Link href={`/post?title=${props.title}`}>
+            <a>{props.title}</a>
+        </Link>
+    );
 };
 
 const PostList = () => {
@@ -10,7 +14,9 @@ const PostList = () => {
             <h1>Blog</h1>
             <ul>
                 <li>
-                    <Link href="/">Home</Link>
+                    <Link href="/">
+                        <a>Home</a>
+                    </Link>
                 </li>
                 <li>
                     <PostLink title="Hello Next.js" />
