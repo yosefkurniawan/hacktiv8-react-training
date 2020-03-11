@@ -1,26 +1,18 @@
-import Link from "next/link";
-
-const PostLink = props => {
-    return <Link href={`/post?title=${props.title}`}>{props.title}</Link>;
-};
+import React from 'react';
+import Link from 'next/link';
 
 const Index = () => {
     return (
         <div>
-            <h1>My Blog</h1>
-            <ul>
-                <li>
-                    <PostLink title="Hello Next.js" />
-                </li>
-                <li>
-                    <PostLink title="Learning Next.js" />
-                </li>
-                <li>
-                    <PostLink title="Learning SSR" />
-                </li>
-            </ul>
+            <h1>TESTING NEXT JS</h1>
+
+            <header>
+                <span>
+                    <Link href="/post-list">Blog</Link>
+                </span>
+            </header>
         </div>
     );
-};
+}
 
 export default Index;
